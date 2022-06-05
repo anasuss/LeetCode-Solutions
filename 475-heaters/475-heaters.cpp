@@ -1,28 +1,19 @@
 class Solution {
 public:
-  bool possible(vector<int>& houses, vector<int>& heaters , int dist){
-    int l ,  r ;
-    int j = 0 ;
-    for (int i = 0 ; i<heaters.size() ; i++){
-        l = heaters[i]-dist ;
-        r = heaters[i]+dist ;
-        while (j<houses.size() && l<=houses[j] && r>=houses[j]) ++j ;
-     }
-     return j == houses.size() ;
-}
+ int findRadius(vector<int>& houses, vector<int>& heaters){
+    sort(heaters.begin(),heaters.end()) ;
+    int ans = INT_MIN ;
+    for (int i = 0 ; i<(int)houses.size() ; i++){
+        int h = lower_bound(heaters.begin(),heaters.end(),houses[i])-heaters.begin() ;
+        if (h == heaters.size()){
+            ans = max(ans,abs(houses[i]-heaters[h-1])) ;
+        }else if (h == 0)
+             ans = max(ans,abs(houses[i]-heaters[h]));
+        else{
+            int best_h = min(abs(houses[i]-heaters[h]),(houses[i]-heaters[h-1])) ;
+            ans = max(ans,best_h) ;
+        }
 
-int findRadius(vector<int>& houses, vector<int>& heaters){
-
-    int l = 0 ,   r = 1e9  ;
-    int ans = -1 ;
-    sort(houses.begin(),houses.end()) ;
-    sort(heaters.begin(),heaters.end());
-    while (r>=l){
-        int mid = l+(r-l)/2 ;
-        if (possible(houses,heaters,mid))
-            r = mid-1 , ans = mid ;
-        else
-            l = mid+1;
     }
     return ans ;
 }
