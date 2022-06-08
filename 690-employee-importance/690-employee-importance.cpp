@@ -10,15 +10,10 @@ public:
 
 class Solution {
 public:
-void dfs(vector<Employee*> &employees, int id ,vector<bool> &visited , int &s ){
-     visited[id] = true ;
-        // cout << employees[id]->importance << endl ; 
-         s+=employees[id]->importance ;
-    for (int i = 0 ; i<(int)employees[id]->subordinates.size() ;i++){
-        if (!visited[employees[id]->subordinates[i]]){
-            dfs(employees,employees[id]->subordinates[i],visited,s) ;
-        }
-    }
+void dfs(vector<Employee*> &employees, int id , int &s ){
+    s+=employees[id]->importance ;
+    for (int i = 0 ; i<(int)employees[id]->subordinates.size() ;i++)
+            dfs(employees,employees[id]->subordinates[i],s) ;
 
 }
 
@@ -35,9 +30,8 @@ int getImportance(vector<Employee*> employees, int id) {
             employees[i]->subordinates[j] = mp[employees[i]->subordinates[j]] ;
     }
     id = mp[id] ; 
-    vector<bool> visited(n,false) ;
     int s = 0 ;
-    dfs(employees,id,visited,s);
+    dfs(employees,id,s);
     return s;
 }
 
