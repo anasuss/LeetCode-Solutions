@@ -17,7 +17,7 @@ void dfs(int node){
         auto it = graph_directed[child].find(node) ;
         if (it == graph_directed[child].end()){
             graph_directed[child].insert(node) ;
-            graph_directed[node].erase(child) ;
+            //graph_directed[node].erase(child) ;
             ++m ;
         }
         dfs(child);
