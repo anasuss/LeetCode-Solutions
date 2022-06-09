@@ -16,6 +16,7 @@ void dfs(int node , vector<vector<int>>& graph , int c = 1){
         return ;
     }
     for (int child : graph[node]){
+        if (!v)
         dfs(child,graph,3-c);
     }
 }
