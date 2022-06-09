@@ -17,8 +17,8 @@ void dfs(int node){
         auto it = find(graph_directed[child].begin(),graph_directed[child].end(),node) ;
         if (it == graph_directed[child].end()){
             graph_directed[child].push_back(node) ;
-            it = find(graph_directed[node].begin(),graph_directed[node].end(),child) ;
-            graph_directed[node].erase(it) ;
+           // it = find(graph_directed[node].begin(),graph_directed[node].end(),child) ;
+            //graph_directed[node].erase(it) ;
             ++m ;
         }
         dfs(child);
