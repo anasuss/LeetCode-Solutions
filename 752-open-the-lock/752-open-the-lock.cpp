@@ -10,14 +10,12 @@ int openLock(vector<string>& deadends, string target) {
             visited.insert(s) ; 
     q.push("0000") ;
     visited.insert("0000") ;
-
+    if (target == "0000")
+        return 0 ; 
     for (int level = 0 , sz = 1 ; !q.empty() ; level++ , sz = q.size()){
         while(sz--){
             string s = q.front() ;
-            q.pop() ;
-             if (s == target)
-                return level ; 
-            
+            q.pop() ;   
             string sn = s ;
             for (int j = 0 ; j<4 ; j++){
                 int n = s[j]-'0' ;
