@@ -10,6 +10,6 @@ public:
             else
                 l = mid+1 ; 
         }
-        return min(ans,nums[0]) ; 
+        return min(nums[0],ans) ; 
     }
 };
