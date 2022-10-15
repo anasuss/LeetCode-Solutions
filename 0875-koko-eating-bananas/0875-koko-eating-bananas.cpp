@@ -5,8 +5,10 @@ public:
         for (int i = 0 ; i<piles.size() ; i++){
             int x = ceil((double)piles[i]/(double)mid) ; 
             k+=x ; 
+            if (k>h)
+                return false ; 
         }
-        return k<=h ; 
+        return true ; 
     }
     int minEatingSpeed(vector<int>& piles, int h) {
         long long l = 1 , r = 1e9 ; 
