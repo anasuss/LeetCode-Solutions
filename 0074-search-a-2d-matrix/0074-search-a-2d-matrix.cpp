@@ -14,7 +14,9 @@ public:
             else 
                 r = mid-1 ; 
         }
-        int rw = min(l,n-1) ; 
+        if (l>n-1)
+            return false ; 
+        int rw = l ; 
         l = 0 , r = m-1 ; 
         while(l<=r){
             int mid = l+(r-l)/2 ; 
