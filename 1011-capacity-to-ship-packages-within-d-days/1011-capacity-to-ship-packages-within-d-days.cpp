@@ -23,8 +23,8 @@ public:
      
 
     int shipWithinDays(vector<int>& weights, int days){
-        int s = accumulate(weights.begin(),weights.end(),0) ; 
-        int l = 1 , r = s ; 
+        int r = accumulate(weights.begin(),weights.end(),0) ; 
+        int l = *max_element(weights.begin(),weights.end()) ;  
         while(l<r){
             int mid = l+(r-l)/2 ; 
             if (is_possible(weights,days,mid))
