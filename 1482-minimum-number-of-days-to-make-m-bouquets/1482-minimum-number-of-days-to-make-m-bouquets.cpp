@@ -22,7 +22,8 @@ public:
         ll x = ll(m)*(ll)k ; 
         if (x>n)
             return -1 ; 
-        ll l = 1 , r = 1e9 ; 
+        ll l = 1 ; 
+        ll r = *max_element(bloomday.begin(),bloomday.end()) ; 
         while(l<=r){
             ll mid = l+(r-l)/2 ; 
             if (is_possible(mid,bloomday,m,k))
