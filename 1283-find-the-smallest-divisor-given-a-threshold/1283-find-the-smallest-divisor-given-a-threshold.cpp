@@ -1,32 +1,26 @@
 class Solution {
 public:
-
- bool possible(int mid , vector<int>& nums, int threshold){
-   long long sum = 0 ;
-   for(int i = 0 ; i<(int)nums.size() ; i++){
-        int x = (int)nums[i]/mid ;
-        if ((double)nums[i]/mid>x)
-            x+=1;
-        sum+=x ;
-   }
-   return sum<=threshold ;
-}
-
-
-int smallestDivisor(vector<int>& nums, int threshold){
-    int ans = 0 ;
-    int r = 0 , l = 1 ;
-    for (int i = 0 ; i<nums.size() ; i++)
-        r = max(r,nums[i]) ;
-
-    while(r>=l){
-        int mid = l + (r-l)/2 ;
-        if (possible(mid,nums,threshold))
-            r = mid-1 , ans = mid ;
-        else
-            l = mid+1 ;
+    typedef long long ll ; 
+    
+    bool is_possible(int mid , vector<int>&v , int x){
+        ll sum = 0 ; 
+        for (int i = 0 ; i<v.size() ; i++){
+            ll y = ceil((double)v[i]/(double)mid) ; 
+            sum+=y; 
+            if (sum>x)
+                return false ;  
+        }
+        return true ; 
     }
-  return ans ;
-}
-
+    int smallestDivisor(vector<int>& nums, int threshold) {
+        int l = 1 , r = *max_element(nums.begin(),nums.end()) ; 
+        while(l<=r){
+            int mid = l+(r-l)/2 ; 
+            if (is_possible(mid,nums,threshold))
+                r = mid-1 ; 
+            else 
+                l = mid+1 ; 
+        }
+        return r+1 ; 
+    }
 };
