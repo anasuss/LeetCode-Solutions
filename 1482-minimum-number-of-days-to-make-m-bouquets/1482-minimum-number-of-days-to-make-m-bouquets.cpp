@@ -3,28 +3,19 @@ public:
     typedef long long ll ; 
     bool is_possible(ll maxD,vector<int>&v,int m , int k){
         int j = 0 ;
-        int cnt = 0 ; 
-        int mx = 0 ;
-        int idxmx = 0 ; 
+        int cnt = 0 ;  
         for (int i = 0 ; i<v.size() ; i++){
-            if (v[i]>mx){
-                mx = v[i] ; 
-                idxmx = i ; 
-            }
-            if (mx<=maxD){
+            if (v[i]<=maxD){
                 ++j ; 
                 if (j == k){
-                    ++cnt ; 
-                    j = 0 ; 
+                    ++cnt , j = 0 ; 
+                    if (cnt == m)
+                        return true ; 
                 }
-            }else{
+            }else 
                 j = 0 ; 
-                i = idxmx;
-                mx = 0 ; 
-                idxmx = 0 ; 
-            }
         }
-        return cnt>=m ; 
+        return false ; 
     }
     int minDays(vector<int>& bloomday, int m, int k) {
         ll n = bloomday.size() ;
