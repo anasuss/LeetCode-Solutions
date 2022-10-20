@@ -28,10 +28,10 @@ class Solution{
            if (l1<=r2 && l2<=r1){
                return  max(l1,l2) ;
            }
-           if (l1<r2)
-                l = cut1+1 ;
-            else
-                r = cut1-1 ;
+           if (l1>r2)
+            r = cut1-1 ; 
+            else 
+            l = cut1+1 ; 
    }
        return 0 ; 
     }
