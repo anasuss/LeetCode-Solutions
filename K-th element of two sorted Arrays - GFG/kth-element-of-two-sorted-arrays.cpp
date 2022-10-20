@@ -9,18 +9,10 @@ class Solution{
     int kthElement(int a[], int b[], int n, int m, int k)
     {
       if (n>m) return kthElement(b,a,m,n,k) ; 
-    int l = 0 , r = n ;
+    int l = max(0,k-m) , r = min(k,n) ;
     while(l<=r){
            int cut1 = l+(r-l)/2 ;
            int cut2 = k-cut1 ;
-           if (cut2>m){
-                l = cut1+1 ;
-                continue ;
-           }
-            if (cut2<0){
-                r = cut1-1 ;
-                continue ;
-           }
            int l1 = cut1<=0 ? INT_MIN : a[cut1-1] ;
            int l2 = cut2<=0 ? INT_MIN : b[cut2-1] ;
            int r1 = cut1>=n ? INT_MAX : a[cut1] ;
