@@ -8,7 +8,7 @@ class Solution{
     public:
     int kthElement(int a[], int b[], int n, int m, int k)
     {
-      // if (n>m) return kthElement(arr2,arr1,m,n,k) ; 
+      if (n>m) return kthElement(b,a,m,n,k) ; 
     int l = 0 , r = n ;
     while(l<=r){
            int cut1 = l+(r-l)/2 ;
