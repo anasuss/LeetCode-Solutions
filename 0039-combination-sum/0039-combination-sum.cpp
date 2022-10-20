@@ -17,6 +17,8 @@ public:
         work(candidates,target,i+1,s) ; 
     }
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+                                                                  candidates.erase(unique(candidates.begin(),candidates.end()),candidates.end());
+
         work(candidates,target) ; 
         return ans; 
     }
