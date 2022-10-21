@@ -2,7 +2,6 @@ class Solution {
 public:
     vector<int> v ; 
     vector<vector<int>> ans ;
-    bitset<101> bs ; 
     int x ; 
     void work(vector<int>&candidates , int target , int idx = 0 ){
         if (target == 0){
