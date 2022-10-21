@@ -2,7 +2,6 @@ class Solution {
 public:
     vector<int> v ; 
     vector<vector<int>> ans ;
-    unordered_set<int> si ; 
     bitset<101> bs ; 
     void work(vector<int>&candidates , int target , int i = 0 , int x = -1){
         if (target == 0){
