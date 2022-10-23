@@ -14,7 +14,7 @@ public:
             s.pop_back() ; 
         }
     }
-    vector<string> letterCombinations(string digits) {
+    vector<string> letterCombinations(string& digits) {
         if (digits == ""){
             return {} ; 
         }
