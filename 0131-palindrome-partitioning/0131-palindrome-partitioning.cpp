@@ -11,9 +11,7 @@ public:
     }
     void work(string &s , int idx = 0){
         if (idx == s.size()){
-            if (v.size() != 0){
-                ans.push_back(v) ; 
-            }
+            ans.push_back(v) ; 
             return ;
         }
         for (int i = idx ; i<s.size() ; i++){
