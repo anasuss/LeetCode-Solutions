@@ -23,7 +23,7 @@ public:
     vector<int> preorderTraversal(TreeNode* root) {
         if (root == nullptr)
             return {} ; 
-                stack<TreeNode*> s ; 
+        stack<TreeNode*> s ; 
         s.push(root) ; 
         while(!s.empty()){
             TreeNode* t = s.top() ; 
